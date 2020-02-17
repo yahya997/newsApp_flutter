@@ -115,7 +115,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
