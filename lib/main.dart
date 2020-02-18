@@ -4,15 +4,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'screens/OnBoarding.dart';
 
 main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  bool seen = prefs.getBool( 'seen' );
+  bool seen = prefs.getBool('seen');
   Widget _screen;
-  if( seen == null || seen == false ){
+  if (seen == null || seen == false) {
     _screen = OnBoarding();
-  }else{
+  } else {
     _screen = HomeScreen();
   }
-  runApp( NewsApp(_screen));
+  runApp(NewsApp(_screen));
 }
 
 class NewsApp extends StatelessWidget {
