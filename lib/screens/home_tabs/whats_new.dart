@@ -71,16 +71,11 @@ class _WhatsNewState extends State<WhatsNew> {
     return Container(
       color: Colors.grey.shade100,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(left: 16, top: 16),
-            child: Text(
-              'Top Stroies',
-              style: TextStyle(
-                  color: Colors.grey.shade800,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16),
-            ),
+            child: _drawSectionTitle('Top Strories'),
           ),
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -96,6 +91,21 @@ class _WhatsNewState extends State<WhatsNew> {
               ),
             ),
           ),
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(left: 16, bottom: 8, top: 8),
+                  child: _drawSectionTitle('Recent Update'),
+                ),
+                _drawRecentUpdateCard(Colors.deepOrange),
+                _drawRecentUpdateCard(Colors.teal),
+                SizedBox(height: 48,),
+              ],
+            ),
+          )
         ],
       ),
     );
@@ -157,6 +167,83 @@ class _WhatsNewState extends State<WhatsNew> {
       height: 1,
       width: double.infinity,
       color: Colors.grey.shade100,
+    );
+  }
+
+  Widget _drawSectionTitle(String title) {
+    return Text(
+      title,
+      style: TextStyle(
+          color: Colors.grey.shade800,
+          fontWeight: FontWeight.w500,
+          fontSize: 16),
+    );
+  }
+
+  Widget _drawRecentUpdateCard(Color color) {
+    return Card(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: ExactAssetImage('assets/images/bg2.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * 0.25,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 16, left: 16),
+            child: Container(
+              padding: EdgeInsets.only(left: 24, right: 24, top: 2, bottom: 2),
+              decoration: BoxDecoration(
+                color: color,
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child: Text(
+                'SPORT',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
+            child: Text(
+              "spooooooooooooooooort",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 16, right: 16, top: 8),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.timer,
+                  color: Colors.grey,
+                  size: 18,
+                ),
+                SizedBox(width: 4),
+                Text(
+                  '15 Min',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
